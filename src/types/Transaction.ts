@@ -4,3 +4,8 @@ export default interface ITransaction {
   last_name: string;
   email: string;
 }
+
+export interface IFilter {
+  page: number;
+  limit?: number;
+}

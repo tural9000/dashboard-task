@@ -1,30 +1,13 @@
 import { Table } from "antd";
+import { columnsToken } from "../constants";
 import { useStores } from "../store/useStore";
-
-const columnsTokens = [
-  {
-    title: "first_name",
-    dataIndex: "first_name",
-    key: "first_name",
-  },
-  {
-    title: "last_name",
-    dataIndex: "last_name",
-    key: "last_name",
-  },
-  {
-    title: "email",
-    dataIndex: "email",
-    key: "email",
-  },
-];
 
 const ApiTokens = () => {
   const { tokensStore } = useStores();
 
   return (
     <div className="page-div">
-      <Table columns={columnsTokens} dataSource={tokensStore.tokens} />
+      <Table columns={columnsToken} dataSource={tokensStore.tokens} />
     </div>
   );
 };
