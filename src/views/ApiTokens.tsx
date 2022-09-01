@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import { useStores } from "../store/useStore";
 
-const columnsUser = [
+const columnsTokens = [
   {
     title: "first_name",
     dataIndex: "first_name",
@@ -24,7 +24,7 @@ const ApiTokens = () => {
 
   return (
     <div className="page-div">
-      <Table columns={columnsUser} dataSource={tokensStore.tokens} />
+      <Table columns={columnsTokens} dataSource={tokensStore.tokens} />
     </div>
   );
 };

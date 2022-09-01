@@ -1,15 +1,9 @@
 import { PageHeader, Menu, Dropdown, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 export default () => {
   const loc = useLocation()
-
-  useEffect(() => {
-    console.log(loc.pathname, 'loc');
-    
-  }, [])
 
   const menu = (
     <Menu>

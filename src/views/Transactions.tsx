@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import { useStores } from "../store/useStore";
 
-const columnsUser = [
+const columnsTransaction = [
   {
     title: "first_name",
     dataIndex: "first_name",
@@ -24,7 +24,7 @@ const Transactions = () => {
 
   return (
     <div className="page-div">
-      <Table columns={columnsUser} dataSource={transactionsStore.transactions} />
+      <Table columns={columnsTransaction} dataSource={transactionsStore.transactions} />
     </div>
   );
 };
