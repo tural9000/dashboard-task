@@ -1,0 +1,41 @@
+.ant-page-header {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    position: relative;
+    padding: 10px 20px !important;
+    background-color: #efefef !important;
+    border-bottom: 1px solid white;
+}
+
+.ant-page-header-heading .ant-avatar {
+  margin-left: 10px;
+  margin-right: 0px !important;
+}
+
+.table-div {
+  padding: 20px;
+  text-align: end;
+  button {
+    margin-top: 15px;
+  }
+  h3 {
+    text-align: start;
+  }
+}
+
+.page-div {
+  padding: 20px;
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
+  position: relative;
+  padding: 8px;
+  overflow-wrap: break-word;
+}
