@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "startServer": "json-server --watch db/data.json --port 3000"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
