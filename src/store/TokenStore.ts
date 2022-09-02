@@ -7,20 +7,21 @@ export class TokensStore {
   @observable datas: IToken[] = [];
   @observable count: number = 0;
   @observable isloading: boolean = false;
-  @observable filter: IFilter = {
+  @observable filters: IFilter = {
     page: 1,
     limit: 10,
+    q: ''
   };
-  
+
   constructor() {
     makeAutoObservable(this);
-    reaction(() => [this.filter], () => this.loadTokens())
+    reaction(() => [this.filters], () => this.loadTokens())
   }
 
   @action
   loadTokens = () => {
     this.isloading = true;
-    getTokens(this.filter).then(({data, count}) => {
+    getTokens(this.filters).then(({data, count}) => {
       this.tokens = data;
       this.count = count;
     }).finally(() => (this.isloading = false));
@@ -28,7 +29,7 @@ export class TokensStore {
   
   @action
   setFilter(filter: Partial<IFilter>) {
-    this.filter = { ...this.filter, ...filter };
+    this.filters = { ...this.filters, ...filter };
   }
 
   @action

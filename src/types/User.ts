@@ -8,4 +8,5 @@ export default interface IUser {
 export interface IFilter {
   page: number;
   limit?: number;
+  q: string;
 }

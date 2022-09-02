@@ -1,9 +1,10 @@
-import { Table } from "antd";
+import { Input, Table } from "antd";
 import type { TableProps } from "antd/es/table";
 import { columnsToken } from "../constants";
 import { useStores } from "../store/useStore";
 import { observer } from "mobx-react";
 import IToken from "../types/Token";
+import { ChangeEvent } from "react";
 
 const ApiTokens = () => {
   const { tokensStore } = useStores();
@@ -23,8 +24,19 @@ const ApiTokens = () => {
     }
   };
 
+  const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    tokensStore.setFilter({
+      q: e.target.value,
+    });
+  };
+
   return (
     <div className="page-div">
+      <div className="search-div">
+        <h3>Search:</h3>
+        <Input onChange={onChangeFilter} className="search-input" />
+      </div>
+
       <Table
         pagination={{
           total: tokensStore.count,

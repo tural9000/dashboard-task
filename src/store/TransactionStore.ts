@@ -10,6 +10,7 @@ export class TransactionsStore {
   @observable filter: IFilter = {
     page: 1,
     limit: 10,
+    q: ''
   };
 
   constructor() {

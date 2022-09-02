@@ -2,15 +2,15 @@ import IToken, {IFilter} from "../types/Token";
 import { AxiosResponse } from "axios";
 import api from "../config/ApiConfig";
 
-export const getTokens = ({page, limit = 10}: IFilter): Promise<{count: number, data: IToken[]}> => {
+export const getTokens = ({page, limit = 10, q}: IFilter): Promise<{count: number, data: IToken[]}> => {
   return api.get("/apitokens", {
     params: {
       _page: page,
-      _limit: limit
+      _limit: limit,
+      q: q
     }
   }).then((res: AxiosResponse) => ({data: res.data,count: parseInt(res.headers['x-total-count']) }));
 };
-
 
 export const postTokens = (data: IToken[]) => {
   return api.post("/apitokens", data).then((res: AxiosResponse) => res.data);

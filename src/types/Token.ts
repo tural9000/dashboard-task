@@ -8,4 +8,5 @@ export default interface IToken {
 export interface IFilter {
   page: number;
   limit?: number;
+  q: string;
 }

@@ -42,3 +42,10 @@
   padding: 8px;
   overflow-wrap: break-word;
 }
+
+.search-div {
+  margin-bottom: 20px;
+  .search-input {
+    width: 20%;
+  }
+}
