@@ -1,3 +1,5 @@
+import { ColumnsType } from "antd/lib/table";
+
 // Routes
 export const usersLoc = "/users";
 export const transactionsLoc = "/transactions";
@@ -26,6 +28,7 @@ export const columnsUser = [
     key: "email",
   },
 ];
+
 
 export const columnsTransaction = [
   {

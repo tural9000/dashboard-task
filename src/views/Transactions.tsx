@@ -4,10 +4,14 @@ import { columnsTransaction } from "../constants";
 import { useStores } from "../store/useStore";
 import { observer } from "mobx-react";
 import ITransaction from "../types/Transaction";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
+
+const REGEX = new RegExp("");
 
 const Transactions = () => {
   const { transactionsStore } = useStores();
+  const [value, setValue] = useState<string>("");
+  const [regEx, setRegEx] = useState<RegExp>(REGEX);
 
   const onChange: TableProps<ITransaction>["onChange"] = (
     pagination,
@@ -25,10 +29,77 @@ const Transactions = () => {
   };
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
+
+    const targetValue = e.target.value;
+    const regEx = new RegExp("^" + targetValue + "", "gi");
+
     transactionsStore.setFilter({
       q: e.target.value,
     });
+
+    setRegEx(regEx);
+    setValue(targetValue);
   };
+
+  const columnsTransaction = [
+    {
+      title: "first_name",
+      dataIndex: "first_name",
+      key: "first_name",
+        render: (cell: string) => {
+          return (
+            <>
+              {regEx.test(cell) ? (
+                <span style={{ backgroundColor: "yellow", display: "inline" }}>
+                  {value}
+                </span>
+              ) : (
+                ""
+              )}
+              <span>{cell.replace(regEx, "")}</span>
+            </>
+          );
+        },
+    },
+    {
+      title: "last_name",
+      dataIndex: "last_name",
+      key: "last_name",
+      render: (cell: string) => {
+        return (
+          <>
+            {regEx.test(cell) ? (
+              <span style={{ backgroundColor: "yellow", display: "inline" }}>
+                {value}
+              </span>
+            ) : (
+              ""
+            )}
+            <span>{cell.replace(regEx, "")}</span>
+          </>
+        );
+      },
+    },
+    {
+      title: "email",
+      dataIndex: "email",
+      key: "email",
+      render: (cell: string) => {
+        return (
+          <>
+            {regEx.test(cell) ? (
+              <span style={{ backgroundColor: "yellow", display: "inline" }}>
+                {value}
+              </span>
+            ) : (
+              ""
+            )}
+            <span>{cell.replace(regEx, "")}</span>
+          </>
+        );
+      },
+    },
+  ];
 
   return (
     <div className="page-div">
