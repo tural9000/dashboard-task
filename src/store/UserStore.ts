@@ -4,7 +4,9 @@ import IUser, { IFilter } from "../types/User";
 
 export class UsersStore {
   @observable users: IUser[] = [];
+  @observable datas: IUser[] = [];
   @observable count: number = 0;
+  @observable isloading: boolean = false;
   @observable filter: IFilter = {
     page: 1,
     limit: 10,
@@ -17,9 +19,11 @@ export class UsersStore {
 
   @action
   loadUsers = () => {
-    getUsers(this.filter).then((users) => {
-      this.users = users;
-    });
+    this.isloading = true;
+    getUsers(this.filter).then(({data, count}) => {
+      this.users = data;
+      this.count = count;
+    }).finally(() => (this.isloading = false));
   };
 
   @action

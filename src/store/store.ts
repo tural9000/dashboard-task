@@ -10,7 +10,7 @@ configure({
 export default class RootStore {
   usersStore: UsersStore;
   transactionsStore: TransactionsStore;
-  tokensStore!: TokensStore;
+  tokensStore: TokensStore;
 
   constructor() {
     makeAutoObservable(this);

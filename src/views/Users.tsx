@@ -14,8 +14,7 @@ const Users = () => {
     __,
     extra
   ) => {
-    console.log("ext", pagination, extra);
-    console.log(usersStore);
+    console.log(usersStore.count);
     if (extra.action == "paginate") {
       usersStore.setFilter({
         page: pagination.current,
@@ -29,7 +28,7 @@ const Users = () => {
       <div className="page-div">
         <Table
           pagination={{
-            total: 1000,
+            total: usersStore.count,
           }}
           columns={columnsUser}
           dataSource={usersStore.users}
