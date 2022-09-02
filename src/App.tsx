@@ -6,6 +6,7 @@ import Transactions from "./views/Transactions";
 import ApiTokens from "./views/ApiTokens";
 
 function App() {
+  const a:number = 3;
   return (
     <Router>
       <Navbar />
