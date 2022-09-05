@@ -10,7 +10,7 @@ export class UsersStore {
   @observable filters: IFilter = {
     page: 1,
     limit: 10,
-    q: ''
+    q: "",
   };
 
   constructor() {
@@ -28,7 +28,7 @@ export class UsersStore {
       .then(({ data, count }) => {
         this.users = data;
         this.count = count;
-      })  
+      })
       .finally(() => (this.isloading = false));
   };
 

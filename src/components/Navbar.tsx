@@ -1,9 +1,10 @@
 import { PageHeader, Menu, Dropdown, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
+import GlobalSearchInput from "./GlobalSearchInput";
 
 export default () => {
-  const loc = useLocation()
+  const loc = useLocation();
 
   const menu = (
     <Menu>
@@ -21,21 +22,36 @@ export default () => {
         ghost={false}
         title={"PAS"}
         extra={[
-          <div className="nav-buttons">
-            <Dropdown overlay={menu} placement="bottomCenter">
-              <a className="profile-button">
-                Oktay Afandi
-                <Avatar icon={<UserOutlined />} />
-              </a>
-            </Dropdown>
+          <>
+          <div>
+            <GlobalSearchInput />
           </div>
+
+            <div className="nav-buttons">
+              <Dropdown overlay={menu} placement="bottomCenter">
+                <a className="profile-button">
+                  Oktay Afandi
+                  <Avatar icon={<UserOutlined />} />
+                </a>
+              </Dropdown>
+            </div>
+          </>,
         ]}
       />
+
       <Menu mode="horizontal" selectedKeys={[loc.pathname]}>
-        <Menu.Item key="/"><Link to='/'>Home</Link></Menu.Item>
-        <Menu.Item key="/users"><Link to='/users'>Users</Link></Menu.Item>
-        <Menu.Item key="/transactions"><Link to='/transactions'>Transactions</Link></Menu.Item>
-        <Menu.Item key="/tokens"><Link to='/tokens'>API Tokens</Link></Menu.Item>
+        <Menu.Item key="/">
+          <Link to="/">Home</Link>
+        </Menu.Item>
+        <Menu.Item key="/users">
+          <Link to="/users">Users</Link>
+        </Menu.Item>
+        <Menu.Item key="/transactions">
+          <Link to="/transactions">Transactions</Link>
+        </Menu.Item>
+        <Menu.Item key="/tokens">
+          <Link to="/tokens">API Tokens</Link>
+        </Menu.Item>
       </Menu>
     </div>
   );

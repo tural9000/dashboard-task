@@ -32,20 +32,20 @@ const Users = () => {
       title: "first_name",
       dataIndex: "first_name",
       key: "first_name",
-        render: (cell: string) => {
-          return (
-            <>
-              {regEx.test(cell) ? (
-                <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                  {value}
-                </span>
-              ) : (
-                ""
-              )}
-              <span>{cell.replace(regEx, "")}</span>
-            </>
-          );
-        },
+      render: (cell: string) => {
+        return (
+          <>
+            {regEx.test(cell) ? (
+              <span style={{ backgroundColor: "yellow", display: "inline" }}>
+                {value}
+              </span>
+            ) : (
+              ""
+            )}
+            <span>{cell.replace(regEx, "")}</span>
+          </>
+        );
+      },
     },
     {
       title: "last_name",
@@ -90,7 +90,7 @@ const Users = () => {
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
     const regEx = new RegExp("^" + targetValue + "", "g");
-    
+
     usersStore.setFilter({
       q: e.target.value,
     });
