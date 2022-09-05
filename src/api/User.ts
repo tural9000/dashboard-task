@@ -9,8 +9,8 @@ export const getUsers = ({page, limit = 10, q}: IFilter): Promise<{count: number
       _limit: limit,
       q: q
     }
-  }).then((res: AxiosResponse) => ({data: res.data,count: parseInt(res.headers['x-total-count']) }));
-};
+  }).then((res: AxiosResponse) => ({data: res.data, count: parseInt(res.headers['x-total-count']) }));
+};    
 
 export const postUsers = (data: IUser[]) => {
   return api.post("/users", data).then((res: AxiosResponse) => res.data);

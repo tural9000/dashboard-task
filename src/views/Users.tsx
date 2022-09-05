@@ -89,10 +89,10 @@ const Users = () => {
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
-    const regEx = new RegExp("^" + targetValue + "", "g");
+    const regEx = new RegExp("^" + targetValue + "", "gi");
 
     usersStore.setFilter({
-      q: e.target.value,
+      q: e.target.value.trim(),
     });
 
     setRegEx(regEx);

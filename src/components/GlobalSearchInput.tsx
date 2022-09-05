@@ -6,10 +6,8 @@ const GlobalSearchInput = () => {
   const { globalSearchStore } = useStores();
   
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log('sa');
-    
     globalSearchStore.setSearch({
-      q: e.target.value,
+      q: e.target.value
     });
   };
   

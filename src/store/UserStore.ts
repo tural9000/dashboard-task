@@ -20,7 +20,7 @@ export class UsersStore {
       () => this.loadUsers()
     );
   }
-
+  
   @action
   loadUsers = () => {
     this.isloading = true;
