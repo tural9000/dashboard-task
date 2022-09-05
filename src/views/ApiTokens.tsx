@@ -33,7 +33,7 @@ const ApiTokens = () => {
     const regEx = new RegExp("^" + targetValue + "", "gi");
 
     tokensStore.setFilter({
-      q: e.target.value,
+      q: e.target.value.trim()
     });
 
     setRegEx(regEx);

@@ -34,7 +34,7 @@ const Transactions = () => {
     const regEx = new RegExp("^" + targetValue + "", "gi");
 
     transactionsStore.setFilter({
-      q: e.target.value,
+      q: e.target.value.trim()
     });
 
     setRegEx(regEx);

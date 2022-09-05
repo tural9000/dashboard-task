@@ -92,7 +92,7 @@ const Users = () => {
     const regEx = new RegExp("^" + targetValue + "", "gi");
 
     usersStore.setFilter({
-      q: e.target.value.trim(),
+      q: e.target.value.trim()
     });
 
     setRegEx(regEx);
