@@ -1,8 +1,19 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { Input } from "antd";
+import { useStores } from "../store/useStore";
 
 const GlobalSearchInput = () => {
-  return <Input placeholder="Search..." />;
+  const { globalSearchStore } = useStores();
+  
+  const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log('sa');
+    
+    globalSearchStore.setSearch({
+      q: e.target.value,
+    });
+  };
+  
+  return <Input onChange={onChangeFilter} placeholder="Search..." />;
 };
 
 export default GlobalSearchInput;
