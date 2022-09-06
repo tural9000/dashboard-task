@@ -18,7 +18,6 @@ const ApiTokens = () => {
     __,
     extra
   ) => {
-    console.log(tokensStore.count);
     if (extra.action == "paginate") {
       tokensStore.setFilter({
         page: pagination.current,
@@ -28,7 +27,6 @@ const ApiTokens = () => {
   };
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
-
     const targetValue = e.target.value;
     const regEx = new RegExp("^" + targetValue + "", "gi");
 

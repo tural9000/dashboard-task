@@ -19,7 +19,6 @@ const Transactions = () => {
     __,
     extra
   ) => {
-    console.log(transactionsStore.count);
     if (extra.action == "paginate") {
       transactionsStore.setFilter({
         page: pagination.current,
