@@ -9,7 +9,7 @@
   list-style: none;
   font-feature-settings: "tnum";
   position: relative;
-  padding: 10px 20px !important;
+  padding: 5px 20px !important;
   background-color: #efefef !important;
   border-bottom: 1px solid white;
 }
@@ -52,15 +52,46 @@
 
 .search-select {
   background-color: white;
-  padding: 1% 2.8%;
+  padding: 1% 1%;
   position: absolute;
+  z-index: 100;
   top: 0%;
   margin-top: 50px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border: 1px solid rgba(149, 157, 165, 0.2);
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  height: auto;
+  width: 20%;
+  .search-div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(149, 157, 165, 0.2);
+    ul {
+      list-style: none;
+    }
   }
+}
+
+.h1 {
+  margin-bottom: 0px !important;
+}
+
+.ant-page-header-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px !important;
+}
+
+.globalsearch-input {
+  width: 20% !important;
+  height: 20% !important;
+  margin: auto !important;
+}
+
+.profile-button {
+  margin: auto 0px !important;
+}
+
+.ant-avatar.ant-avatar-icon {
+  font-size: 18px;
+  margin-left: 10px;
 }

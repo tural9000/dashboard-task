@@ -1,6 +1,5 @@
 import { Table, Input } from "antd";
 import type { TableProps } from "antd/es/table";
-import { columnsTransaction } from "../constants";
 import { useStores } from "../store/useStore";
 import { observer } from "mobx-react";
 import ITransaction from "../types/Transaction";
@@ -28,7 +27,6 @@ const Transactions = () => {
   };
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
-
     const targetValue = e.target.value;
     const regEx = new RegExp("^" + targetValue + "", "gi");
 

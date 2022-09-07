@@ -1,9 +1,6 @@
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./views/Home";
-import Users from "./views/Users";
-import Transactions from "./views/Transactions";
-import ApiTokens from "./views/ApiTokens";
+import { ApiTokens, Transactions, Users, Home } from "./views/AllViews";
 
 function App() {
   return (

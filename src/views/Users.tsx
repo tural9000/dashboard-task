@@ -4,7 +4,7 @@ import { useStores } from "../store/useStore";
 import { observer } from "mobx-react";
 import IUser from "../types/User";
 import { ChangeEvent } from "react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const REGEX = new RegExp("");
 

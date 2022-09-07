@@ -18,26 +18,18 @@ export default () => {
 
   return (
     <div className="site-page-header-ghost-wrapper">
-      <PageHeader
-        ghost={false}
-        title={"PAS"}
-        extra={[
-          <>
-          <div>
-            <GlobalSearchInput />
-          </div>
+      <PageHeader>
+        <h1 className="h1">PAS</h1>
 
-            <div className="nav-buttons">
-              <Dropdown overlay={menu} placement="bottomCenter">
-                <a className="profile-button">
-                  Oktay Afandi
-                  <Avatar icon={<UserOutlined />} />
-                </a>
-              </Dropdown>
-            </div>
-          </>,
-        ]}
-      />
+        <GlobalSearchInput />
+
+        <Dropdown overlay={menu} placement="bottomCenter">
+          <a className="profile-button">
+            Oktay Afandi
+            <Avatar icon={<UserOutlined />} />
+          </a>
+        </Dropdown>
+      </PageHeader>
 
       <Menu mode="horizontal" selectedKeys={[loc.pathname]}>
         <Menu.Item key="/">

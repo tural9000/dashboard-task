@@ -27,6 +27,5 @@ export default class RootStore {
     this.tokensStore.loadTokens();
 
     this.globalSearchStore = new GlobalSearchStore();
-    this.globalSearchStore.loadSearch();
   }
 }
