@@ -29,19 +29,14 @@ export const columnsUser = [
 
 export const columnsTransaction = [
   {
-    title: "first_name",
-    dataIndex: "first_name",
-    key: "first_name",
+    title: "transaction_name",
+    dataIndex: "transaction_name",
+    key: "transaction_name",
   },
   {
-    title: "last_name",
-    dataIndex: "last_name",
-    key: "last_name",
-  },
-  {
-    title: "email",
-    dataIndex: "email",
-    key: "email",
+    title: "transaction_status",
+    dataIndex: "transaction_status",
+    key: "transaction_status",
   },
 ];
 

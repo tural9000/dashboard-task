@@ -1,8 +1,7 @@
 export default interface ITransaction {
   id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
+  transaction_name: string;
+  transaction_status: string;
 }
 
 export interface IFilter {

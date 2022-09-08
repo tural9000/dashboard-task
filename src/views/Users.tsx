@@ -42,7 +42,7 @@ const Users = () => {
             ) : (
               ""
             )}
-            <span>{cell.replace(regEx, "")}</span>
+            <span>{cell?.replace(regEx, "")}</span>
           </>
         );
       },
@@ -61,7 +61,7 @@ const Users = () => {
             ) : (
               ""
             )}
-            <span>{cell.replace(regEx, "")}</span>
+            <span>{cell?.replace(regEx, "")}</span>
           </>
         );
       },
@@ -80,7 +80,7 @@ const Users = () => {
             ) : (
               ""
             )}
-            <span>{cell.replace(regEx, "")}</span>
+            <span>{cell?.replace(regEx, "")}</span>
           </>
         );
       },

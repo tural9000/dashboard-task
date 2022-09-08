@@ -31,7 +31,7 @@ const ApiTokens = () => {
     const regEx = new RegExp("^" + targetValue + "", "gi");
 
     tokensStore.setFilter({
-      q: e.target.value.trim()
+      q: e.target.value.trim(),
     });
 
     setRegEx(regEx);
@@ -43,20 +43,20 @@ const ApiTokens = () => {
       title: "first_name",
       dataIndex: "first_name",
       key: "first_name",
-        render: (cell: string) => {
-          return (
-            <>
-              {regEx.test(cell) ? (
-                <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                  {value}
-                </span>
-              ) : (
-                ""
-              )}
-              <span>{cell.replace(regEx, "")}</span>
-            </>
-          );
-        },
+      render: (cell: string) => {
+        return (
+          <>
+            {regEx.test(cell) ? (
+              <span style={{ backgroundColor: "yellow", display: "inline" }}>
+                {value}
+              </span>
+            ) : (
+              ""
+            )}
+            <span>{cell?.replace(regEx, "")}</span>
+          </>
+        );
+      },
     },
     {
       title: "last_name",
@@ -72,7 +72,7 @@ const ApiTokens = () => {
             ) : (
               ""
             )}
-            <span>{cell.replace(regEx, "")}</span>
+            <span>{cell?.replace(regEx, "")}</span>
           </>
         );
       },
@@ -91,7 +91,7 @@ const ApiTokens = () => {
             ) : (
               ""
             )}
-            <span>{cell.replace(regEx, "")}</span>
+            <span>{cell?.replace(regEx, "")}</span>
           </>
         );
       },

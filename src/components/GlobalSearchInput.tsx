@@ -14,24 +14,21 @@ const GlobalSearchInput = () => {
   };
 
   const Users = useMemo(
-    () =>
-      globalSearchStore.users
+    () => globalSearchStore.users
         .slice(0, 3)
         .map(({ id, first_name }) => <li key={id}>{first_name}</li>),
     [globalSearchStore.users]
   );
 
   const Transactions = useMemo(
-    () =>
-      globalSearchStore.transactions
+    () => globalSearchStore.transactions
         .slice(0, 3)
-        .map(({ id, first_name }) => <li key={id}>{first_name}</li>),
+        .map(({ id, transaction_name }) => <li key={id}>{transaction_name}</li>),
     [globalSearchStore.transactions]
   );
 
   const APITokens = useMemo(
-    () =>
-      globalSearchStore.tokens
+    () => globalSearchStore.tokens
         .slice(0, 3)
         .map(({ id, first_name }) => <li key={id}>{first_name}</li>),
     [globalSearchStore.tokens]
@@ -52,17 +49,17 @@ const GlobalSearchInput = () => {
                 </div>
               </Link>
 
-              <Link to="tokens">
-                <div className="search-div">
-                  <h4>API Tokens</h4>
-                  <ul>{APITokens}</ul>
-                </div>
-              </Link>
-
               <Link to="/transactions">
                 <div className="search-div">
                   <h4>Transactions</h4>
                   <ul>{Transactions}</ul>
+                </div>
+              </Link>
+
+              <Link to="tokens">
+                <div className="search-div">
+                  <h4>API Tokens</h4>
+                  <ul>{APITokens}</ul>
                 </div>
               </Link>
             </>
