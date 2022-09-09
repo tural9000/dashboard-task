@@ -31,7 +31,7 @@ const Transactions = () => {
     const regEx = new RegExp("^" + targetValue + "", "gi");
 
     transactionsStore.setFilter({
-      q: e.target.value.trim()
+      q: e.target.value.trim(),
     });
 
     setRegEx(regEx);
@@ -43,20 +43,20 @@ const Transactions = () => {
       title: "transaction_name",
       dataIndex: "transaction_name",
       key: "transaction_name",
-        render: (cell: string) => {
-          return (
-            <>
-              {regEx.test(cell) ? (
-                <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                  {value}
-                </span>
-              ) : (
-                ""
-              )}
-              <span>{cell?.replace(regEx, "")}</span>
-            </>
-          );
-        },
+      render: (cell: string) => {
+        return (
+          <>
+            {regEx.test(cell) ? (
+              <span style={{ backgroundColor: "yellow", display: "inline" }}>
+                {value}
+              </span>
+            ) : (
+              ""
+            )}
+            <span>{cell?.replace(regEx, "")}</span>
+          </>
+        );
+      },
     },
     {
       title: "transaction_status",

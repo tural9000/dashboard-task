@@ -26,18 +26,6 @@ const ApiTokens = () => {
     }
   };
 
-  const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
-    const targetValue = e.target.value;
-    const regEx = new RegExp("^" + targetValue + "", "gi");
-
-    tokensStore.setFilter({
-      q: e.target.value.trim(),
-    });
-
-    setRegEx(regEx);
-    setValue(targetValue);
-  };
-
   const columnsToken = [
     {
       title: "first_name",
@@ -97,6 +85,18 @@ const ApiTokens = () => {
       },
     },
   ];
+
+  const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    const targetValue = e.target.value;
+    const regEx = new RegExp(targetValue + "", "gi");
+
+    tokensStore.setFilter({
+      q: e.target.value.trim(),
+    });
+
+    setRegEx(regEx);
+    setValue(targetValue);
+  };
 
   return (
     <div className="page-div">

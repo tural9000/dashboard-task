@@ -5,6 +5,7 @@ import { observer } from "mobx-react";
 import IUser from "../types/User";
 import { ChangeEvent } from "react";
 import { useState } from "react";
+import HighlightMatchingText from "../components/HighlightMatchingText";
 
 const REGEX = new RegExp("");
 
@@ -32,64 +33,22 @@ const Users = () => {
       title: "first_name",
       dataIndex: "first_name",
       key: "first_name",
-      render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
     },
     {
       title: "last_name",
       dataIndex: "last_name",
       key: "last_name",
-      render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
     },
     {
       title: "email",
       dataIndex: "email",
       key: "email",
-      render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
     },
   ];
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
-    const regEx = new RegExp("^" + targetValue + "", "gi");
+    const regEx = new RegExp(targetValue + "", "gi");
 
     usersStore.setFilter({
       q: e.target.value.trim()
@@ -104,7 +63,8 @@ const Users = () => {
       <div className="page-div">
         <div className="search-div">
           <h3>Search:</h3>
-          <Input onChange={onChangeFilter} className="search-input" />
+          <Input defaultValue={usersStore.filters.q} onChange={onChangeFilter} className="search-input" />
+          <p>{HighlightMatchingText('text here', 'text')}</p>
         </div>
         <Table
           pagination={{

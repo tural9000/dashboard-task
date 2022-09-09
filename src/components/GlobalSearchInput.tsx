@@ -1,11 +1,25 @@
-import { ChangeEvent, useCallback, useMemo } from "react";
-import { Input } from "antd";
+import { ChangeEvent, useEffect, useMemo } from "react";
+import { Input, Form } from "antd";
 import { useStores } from "../store/useStore";
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const GlobalSearchInput = () => {
+  const { Item, useForm } = Form;
+  const [storeForm] = useForm();
   const { globalSearchStore } = useStores();
+  const location = useLocation();
+
+  useEffect(() => {
+    filterReset();
+  }, [location]);
+
+  const filterReset = () => {
+    globalSearchStore.setSearch({
+      q: "",
+    });
+  };
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     globalSearchStore.setSearch({
@@ -14,21 +28,26 @@ const GlobalSearchInput = () => {
   };
 
   const Users = useMemo(
-    () => globalSearchStore.users
+    () =>
+      globalSearchStore.users
         .slice(0, 3)
         .map(({ id, first_name }) => <li key={id}>{first_name}</li>),
     [globalSearchStore.users]
   );
 
   const Transactions = useMemo(
-    () => globalSearchStore.transactions
+    () =>
+      globalSearchStore.transactions
         .slice(0, 3)
-        .map(({ id, transaction_name }) => <li key={id}>{transaction_name}</li>),
+        .map(({ id, transaction_name }) => (
+          <li key={id}>{transaction_name}</li>
+        )),
     [globalSearchStore.transactions]
   );
 
   const APITokens = useMemo(
-    () => globalSearchStore.tokens
+    () =>
+      globalSearchStore.tokens
         .slice(0, 3)
         .map(({ id, first_name }) => <li key={id}>{first_name}</li>),
     [globalSearchStore.tokens]
@@ -37,7 +56,11 @@ const GlobalSearchInput = () => {
   return (
     <>
       <div className="globalsearch-input">
-        <Input onChange={onChangeFilter} placeholder="Global search..." />
+        <Form layout="vertical" form={storeForm}>
+          <Item hasFeedback>
+            <Input onChange={onChangeFilter} placeholder="Global search..." />
+          </Item>
+        </Form>
 
         {globalSearchStore.search.q && (
           <div className="search-select">
