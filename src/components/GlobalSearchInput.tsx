@@ -1,21 +1,19 @@
 import { ChangeEvent, useEffect, useMemo } from "react";
-import { Input, Form } from "antd";
+import { Input } from "antd";
 import { useStores } from "../store/useStore";
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const GlobalSearchInput = () => {
-  const { Item, useForm } = Form;
-  const [storeForm] = useForm();
   const { globalSearchStore } = useStores();
   const location = useLocation();
 
   useEffect(() => {
-    filterReset();
+    onFilterReset();
   }, [location]);
 
-  const filterReset = () => {
+  const onFilterReset = () => {
     globalSearchStore.setSearch({
       q: "",
     });
@@ -56,11 +54,7 @@ const GlobalSearchInput = () => {
   return (
     <>
       <div className="globalsearch-input">
-        <Form layout="vertical" form={storeForm}>
-          <Item hasFeedback>
             <Input onChange={onChangeFilter} placeholder="Global search..." />
-          </Item>
-        </Form>
 
         {globalSearchStore.search.q && (
           <div className="search-select">
