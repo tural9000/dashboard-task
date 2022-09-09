@@ -6,7 +6,6 @@ import IToken from "../types/Token";
 import { ChangeEvent, useState } from "react";
 import Highlighter from "../components/Highlighter";
 
-
 const ApiTokens = () => {
   const { tokensStore } = useStores();
   const [search, setSearch] = useState<string>("");
@@ -31,23 +30,25 @@ const ApiTokens = () => {
       dataIndex: "first_name",
       key: "first_name",
       render: (cell: string) => {
-        return <Highlighter value={cell} search={search} />
-      }    },
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
     {
       title: "last_name",
       dataIndex: "last_name",
       key: "last_name",
       render: (cell: string) => {
-        return <Highlighter value={cell} search={search} />
-      }    
+        return <Highlighter value={cell} search={search} />;
+      },
     },
     {
       title: "email",
       dataIndex: "email",
       key: "email",
       render: (cell: string) => {
-        return <Highlighter value={cell} search={search} />
-      }    },
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
   ];
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {

@@ -6,7 +6,6 @@ import ITransaction from "../types/Transaction";
 import { ChangeEvent, useState } from "react";
 import { Highlighter } from "../components/AllComponents";
 
-
 const Transactions = () => {
   const { transactionsStore } = useStores();
   const [search, setSearch] = useState<string>("");
@@ -25,6 +24,25 @@ const Transactions = () => {
     }
   };
 
+  const columnsTransaction = [
+    {
+      title: "transaction_name",
+      dataIndex: "transaction_name",
+      key: "transaction_name",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
+    {
+      title: "transaction_status",
+      dataIndex: "transaction_status",
+      key: "transaction_status",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
+  ];
+
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
 
@@ -34,25 +52,6 @@ const Transactions = () => {
 
     setSearch(targetValue);
   };
-
-  const columnsTransaction = [
-    {
-      title: "transaction_name",
-      dataIndex: "transaction_name",
-      key: "transaction_name",
-      render: (cell: string) => {
-        return <Highlighter value={cell} search={search} />
-      }
-    },
-    {
-      title: "transaction_status",
-      dataIndex: "transaction_status",
-      key: "transaction_status",
-      render: (cell: string) => {
-        return <Highlighter value={cell} search={search} />
-      }
-    },
-  ];
 
   return (
     <div className="page-div">
