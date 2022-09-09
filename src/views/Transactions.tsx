@@ -4,13 +4,12 @@ import { useStores } from "../store/useStore";
 import { observer } from "mobx-react";
 import ITransaction from "../types/Transaction";
 import { ChangeEvent, useState } from "react";
+import { Highlighter } from "../components/AllComponents";
 
-const REGEX = new RegExp("");
 
 const Transactions = () => {
   const { transactionsStore } = useStores();
-  const [value, setValue] = useState<string>("");
-  const [regEx, setRegEx] = useState<RegExp>(REGEX);
+  const [search, setSearch] = useState<string>("");
 
   const onChange: TableProps<ITransaction>["onChange"] = (
     pagination,
@@ -28,14 +27,12 @@ const Transactions = () => {
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
-    const regEx = new RegExp("^" + targetValue + "", "gi");
 
     transactionsStore.setFilter({
       q: e.target.value.trim(),
     });
 
-    setRegEx(regEx);
-    setValue(targetValue);
+    setSearch(targetValue);
   };
 
   const columnsTransaction = [
@@ -44,38 +41,16 @@ const Transactions = () => {
       dataIndex: "transaction_name",
       key: "transaction_name",
       render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
+        return <Highlighter value={cell} search={search} />
+      }
     },
     {
       title: "transaction_status",
       dataIndex: "transaction_status",
       key: "transaction_status",
       render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
+        return <Highlighter value={cell} search={search} />
+      }
     },
   ];
 

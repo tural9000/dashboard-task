@@ -5,14 +5,11 @@ import { observer } from "mobx-react";
 import IUser from "../types/User";
 import { ChangeEvent } from "react";
 import { useState } from "react";
-import HighlightMatchingText from "../components/HighlightMatchingText";
-
-const REGEX = new RegExp("");
+import {Highlighter} from "../components/AllComponents";
 
 const Users = () => {
   const { usersStore } = useStores();
-  const [value, setValue] = useState<string>("");
-  const [regEx, setRegEx] = useState<RegExp>(REGEX);
+  const [search, setSearch] = useState<string>("")
 
   const onChange: TableProps<IUser>["onChange"] = (
     pagination,
@@ -33,29 +30,36 @@ const Users = () => {
       title: "first_name",
       dataIndex: "first_name",
       key: "first_name",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />
+      }
     },
     {
       title: "last_name",
       dataIndex: "last_name",
       key: "last_name",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />
+      }
     },
     {
       title: "email",
       dataIndex: "email",
       key: "email",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />
+      }
     },
   ];
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
-    const regEx = new RegExp(targetValue + "", "gi");
 
     usersStore.setFilter({
       q: e.target.value.trim()
     });
 
-    setRegEx(regEx);
-    setValue(targetValue);
+    setSearch(targetValue);
   };
 
   return (
@@ -64,7 +68,7 @@ const Users = () => {
         <div className="search-div">
           <h3>Search:</h3>
           <Input defaultValue={usersStore.filters.q} onChange={onChangeFilter} className="search-input" />
-          <p>{HighlightMatchingText('text here', 'text')}</p>
+          {/* <p>{HighlightMatchingText('text here', 'text')}</p> */}
         </div>
         <Table
           pagination={{

@@ -54,7 +54,7 @@ const GlobalSearchInput = () => {
   return (
     <>
       <div className="globalsearch-input">
-            <Input onChange={onChangeFilter} placeholder="Global search..." />
+        <Input onChange={onChangeFilter} placeholder="Global search..." />
 
         {globalSearchStore.search.q && (
           <div className="search-select">

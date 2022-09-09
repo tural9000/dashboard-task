@@ -1,7 +1,7 @@
 import { PageHeader, Menu, Dropdown, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
-import GlobalSearchInput from "./GlobalSearchInput";
+import { GlobalSearchInput } from "./AllComponents";
 
 export default () => {
   const loc = useLocation();

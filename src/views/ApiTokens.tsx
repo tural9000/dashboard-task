@@ -4,13 +4,12 @@ import { useStores } from "../store/useStore";
 import { observer } from "mobx-react";
 import IToken from "../types/Token";
 import { ChangeEvent, useState } from "react";
+import Highlighter from "../components/Highlighter";
 
-const REGEX = new RegExp("");
 
 const ApiTokens = () => {
   const { tokensStore } = useStores();
-  const [value, setValue] = useState<string>("");
-  const [regEx, setRegEx] = useState<RegExp>(REGEX);
+  const [search, setSearch] = useState<string>("");
 
   const onChange: TableProps<IToken>["onChange"] = (
     pagination,
@@ -32,70 +31,33 @@ const ApiTokens = () => {
       dataIndex: "first_name",
       key: "first_name",
       render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
-    },
+        return <Highlighter value={cell} search={search} />
+      }    },
     {
       title: "last_name",
       dataIndex: "last_name",
       key: "last_name",
       render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
+        return <Highlighter value={cell} search={search} />
+      }    
     },
     {
       title: "email",
       dataIndex: "email",
       key: "email",
       render: (cell: string) => {
-        return (
-          <>
-            {regEx.test(cell) ? (
-              <span style={{ backgroundColor: "yellow", display: "inline" }}>
-                {value}
-              </span>
-            ) : (
-              ""
-            )}
-            <span>{cell?.replace(regEx, "")}</span>
-          </>
-        );
-      },
-    },
+        return <Highlighter value={cell} search={search} />
+      }    },
   ];
 
   const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const targetValue = e.target.value;
-    const regEx = new RegExp(targetValue + "", "gi");
 
     tokensStore.setFilter({
       q: e.target.value.trim(),
     });
 
-    setRegEx(regEx);
-    setValue(targetValue);
+    setSearch(targetValue);
   };
 
   return (

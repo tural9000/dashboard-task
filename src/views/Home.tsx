@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import TableComponent from "../components/TableComponent";
+import { TableComponent } from "../components/AllComponents";
 import {
   tokensLoc,
   tokenTitleTable,
