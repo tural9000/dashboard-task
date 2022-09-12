@@ -87,9 +87,7 @@ const Users = () => {
           />
         </div>
         <Table
-          pagination={{
-            total: usersStore.count,
-          }}
+          pagination={{ total: usersStore.count }}
           columns={columnsUser}
           dataSource={usersStore.users}
           onChange={onChange}

@@ -66,9 +66,7 @@ const ApiTokens = () => {
       </div>
 
       <Table
-        pagination={{
-          total: tokensStore.count,
-        }}
+        pagination={{ total: tokensStore.count }}
         columns={columnsToken}
         dataSource={tokensStore.tokens}
         onChange={onChange}

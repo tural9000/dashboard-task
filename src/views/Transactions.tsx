@@ -66,8 +66,8 @@ const Transactions = () => {
       title: "Transaction Status",
       dataIndex: "transaction_status",
       key: "transaction_status",
-      render: (cell: string, record: any) => {
-        return `${!record.transaction_status ? 'Uğursuz' : 'Uğurlu'}`;
+      render: (cell: string, record: ITransaction) => {
+        return `${!record.transaction_status ? "Uğursuz" : "Uğurlu"}`;
       },
     },
   ];
@@ -90,9 +90,7 @@ const Transactions = () => {
       </div>
 
       <Table
-        pagination={{
-          total: transactionsStore.count,
-        }}
+        pagination={{ total: transactionsStore.count }}
         columns={columnsTransaction}
         dataSource={transactionsStore.transactions}
         onChange={onChange}

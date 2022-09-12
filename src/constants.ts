@@ -1,3 +1,5 @@
+import ITransaction from "./types/Transaction";
+
 // Routes
 export const usersLoc = "/users";
 export const transactionsLoc = "/transactions";
@@ -67,7 +69,7 @@ export const columnsTransaction = [
     title: "transaction_status",
     dataIndex: "transaction_status",
     key: "transaction_status",
-    render: (cell: string, record: any) => {
+    render: (cell: string, record: ITransaction) => {
       return `${!record.transaction_status ? "Uğursuz" : "Uğurlu"}`;
     },
   },
