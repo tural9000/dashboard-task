@@ -27,7 +27,12 @@ const Users = () => {
 
   const columnsUser = [
     {
-      title: "first_name",
+      title: "ID User",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "First Name",
       dataIndex: "first_name",
       key: "first_name",
       render: (cell: string) => {
@@ -35,7 +40,7 @@ const Users = () => {
       },
     },
     {
-      title: "last_name",
+      title: "Last Name",
       dataIndex: "last_name",
       key: "last_name",
       render: (cell: string) => {
@@ -43,9 +48,17 @@ const Users = () => {
       },
     },
     {
-      title: "email",
+      title: "Email",
       dataIndex: "email",
       key: "email",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
+    {
+      title: "Country",
+      dataIndex: "country",
+      key: "country",
       render: (cell: string) => {
         return <Highlighter value={cell} search={search} />;
       },

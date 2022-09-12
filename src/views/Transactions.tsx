@@ -26,7 +26,12 @@ const Transactions = () => {
 
   const columnsTransaction = [
     {
-      title: "transaction_name",
+      title: "ID Transaction",
+      dataIndex: "transaction_id",
+      key: "transaction_id",
+    },
+    {
+      title: "Transaction Name",
       dataIndex: "transaction_name",
       key: "transaction_name",
       render: (cell: string) => {
@@ -34,11 +39,35 @@ const Transactions = () => {
       },
     },
     {
-      title: "transaction_status",
-      dataIndex: "transaction_status",
-      key: "transaction_status",
+      title: "Transaction Type",
+      dataIndex: "transaction_type",
+      key: "transaction_type",
       render: (cell: string) => {
         return <Highlighter value={cell} search={search} />;
+      },
+    },
+    {
+      title: "Transaction Sender",
+      dataIndex: "transaction_sender",
+      key: "transaction_sender",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
+    {
+      title: "Transaction Recipient",
+      dataIndex: "transaction_recipient",
+      key: "transaction_recipient",
+      render: (cell: string) => {
+        return <Highlighter value={cell} search={search} />;
+      },
+    },
+    {
+      title: "Transaction Status",
+      dataIndex: "transaction_status",
+      key: "transaction_status",
+      render: (cell: string, record: any) => {
+        return `${!record.transaction_status ? 'Uğursuz' : 'Uğurlu'}`;
       },
     },
   ];

@@ -26,25 +26,22 @@ const ApiTokens = () => {
 
   const columnsToken = [
     {
-      title: "first_name",
-      dataIndex: "first_name",
-      key: "first_name",
+      title: "ID Token",
+      dataIndex: "token_id",
+      key: "token_id",
+    },
+    {
+      title: "Company",
+      dataIndex: "token_company",
+      key: "token_company",
       render: (cell: string) => {
         return <Highlighter value={cell} search={search} />;
       },
     },
     {
-      title: "last_name",
-      dataIndex: "last_name",
-      key: "last_name",
-      render: (cell: string) => {
-        return <Highlighter value={cell} search={search} />;
-      },
-    },
-    {
-      title: "email",
-      dataIndex: "email",
-      key: "email",
+      title: "Token",
+      dataIndex: "token_content",
+      key: "token_content",
       render: (cell: string) => {
         return <Highlighter value={cell} search={search} />;
       },
