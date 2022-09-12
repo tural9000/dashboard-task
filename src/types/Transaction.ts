@@ -1,7 +1,10 @@
 export default interface ITransaction {
-  id: number;
+  transaction_id: number;
   transaction_name: string;
-  transaction_status: string;
+  transaction_type: string;
+  transaction_sender: string;
+  transaction_recipient: string;
+  transaction_status: boolean;
 }
 
 export interface IFilter {

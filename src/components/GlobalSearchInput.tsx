@@ -23,6 +23,7 @@ const GlobalSearchInput = () => {
     globalSearchStore.setSearch({
       q: e.target.value,
     });
+    console.log(globalSearchStore.users.length, "globalSearchStore.users");
   };
 
   const Users = useMemo(
@@ -37,8 +38,8 @@ const GlobalSearchInput = () => {
     () =>
       globalSearchStore.transactions
         .slice(0, 3)
-        .map(({ id, transaction_name }) => (
-          <li key={id}>{transaction_name}</li>
+        .map(({ transaction_id, transaction_name }) => (
+          <li key={transaction_id}>{transaction_name}</li>
         )),
     [globalSearchStore.transactions]
   );
@@ -47,7 +48,7 @@ const GlobalSearchInput = () => {
     () =>
       globalSearchStore.tokens
         .slice(0, 3)
-        .map(({ id, first_name }) => <li key={id}>{first_name}</li>),
+        .map(({ token_id, token_company }) => <li key={token_id}>{token_company}</li>),
     [globalSearchStore.tokens]
   );
 
@@ -59,19 +60,23 @@ const GlobalSearchInput = () => {
         {globalSearchStore.search.q && (
           <div className="search-select">
             <>
-              <Link to="/users">
-                <div className="search-div">
-                  <h4>Users</h4>
-                  <ul>{Users}</ul>
-                </div>
-              </Link>
+              {globalSearchStore.users.length != 0 && (
+                <Link to="/users">
+                  <div className="search-div">
+                    <h4>Users</h4>
+                    <ul>{Users}</ul>
+                  </div>
+                </Link>
+              )}
 
-              <Link to="/transactions">
-                <div className="search-div">
-                  <h4>Transactions</h4>
-                  <ul>{Transactions}</ul>
-                </div>
-              </Link>
+              {globalSearchStore.transactions.length != 0 && (
+                <Link to="/transactions">
+                  <div className="search-div">
+                    <h4>Transactions</h4>
+                    <ul>{Transactions}</ul>
+                  </div>
+                </Link>
+              )}
 
               <Link to="tokens">
                 <div className="search-div">

@@ -1,8 +1,7 @@
 export default interface IToken {
-  id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
+  token_id: number;
+  token_company: string;
+  token_content: string;
 }
 
 export interface IFilter {
