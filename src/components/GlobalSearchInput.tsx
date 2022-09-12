@@ -48,7 +48,9 @@ const GlobalSearchInput = () => {
     () =>
       globalSearchStore.tokens
         .slice(0, 3)
-        .map(({ token_id, token_company }) => <li key={token_id}>{token_company}</li>),
+        .map(({ token_id, token_company }) => (
+          <li key={token_id}>{token_company}</li>
+        )),
     [globalSearchStore.tokens]
   );
 
@@ -78,12 +80,14 @@ const GlobalSearchInput = () => {
                 </Link>
               )}
 
-              <Link to="tokens">
-                <div className="search-div">
-                  <h4>API Tokens</h4>
-                  <ul>{APITokens}</ul>
-                </div>
-              </Link>
+              {globalSearchStore.tokens.length != 0 && (
+                <Link to="tokens">
+                  <div className="search-div">
+                    <h4>API Tokens</h4>
+                    <ul>{APITokens}</ul>
+                  </div>
+                </Link>
+              )}
             </>
           </div>
         )}
