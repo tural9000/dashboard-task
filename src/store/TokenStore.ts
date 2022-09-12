@@ -20,7 +20,7 @@ export class TokensStore {
   @action
   loadTokens = () => {
     this.isloading = true;
-    getTokens(this.filter).then(({data, count}) => {
+    getTokens(this.filter).then(({data, count}) => {      
       this.tokens = data;
       this.count = count;
     }).finally(() => (this.isloading = false));

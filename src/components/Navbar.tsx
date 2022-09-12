@@ -1,17 +1,18 @@
 import { PageHeader, Menu, Dropdown, Avatar, Space } from "antd";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useStores } from "../store/useStore";
 
 export default () => {
   const loc = useLocation();
-  const navigate = useNavigate();
+  const { usersStore, tokensStore, transactionsStore } = useStores();
 
   const items = [
-    { label: <Link to="/">Home</Link>, key: "/" },
-    { label: <Link to="/users">Users</Link>, key: "/users" },
-    { label: <Link to="/transactions">Transactions</Link>, key: "/transactions"},
-    { label: <Link to="/tokens">API Tokens</Link>, key: "/tokens" },
+    { label: <Link to="/" /* onClick={} */>Home</Link>, key: "/" },
+    { label: <Link to="/users" onClick={usersStore.loadUsers}>Users</Link>, key: "/users" },
+    { label: <Link to="/transactions" onClick={transactionsStore.loadTransactions}>Transactions</Link>, key: "/transactions"},
+    { label: <Link to="/tokens" onClick={tokensStore.loadTokens}>API Tokens</Link >, key: "/tokens" },
   ];
 
   const menu = (
@@ -19,7 +20,7 @@ export default () => {
       items={[
         {
           label: (
-            <Link target="_blank"  to="/details" >
+            <Link  to="/details" >
               Profil
             </Link>
           ),

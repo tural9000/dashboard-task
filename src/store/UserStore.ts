@@ -10,7 +10,9 @@ export class UsersStore {
   @observable filter: IFilter = {
     page: 1,
     limit: 10,
+    q: ""
   };
+  @observable activeUserId: number = -1
   
   constructor() {
     makeAutoObservable(this);
@@ -27,9 +29,15 @@ export class UsersStore {
   };
 
   @action
-  setFilter(filter: Partial<IFilter>) {
+  setActiveUser = (id: number) => {
+    this.activeUserId = id
+  }
+
+  @action
+  setFilter(filter: Partial<IFilter>) {    
     this.filter = { ...this.filter, ...filter };
   }
+  
 
   @action
   saveUsers = () => {
@@ -40,4 +48,8 @@ export class UsersStore {
   addUser = (user: IUser) => {
     this.users.push(user);
   };
+
+  get activeUser()  {
+    return this.users.find(user => user.id === this.activeUserId)
+  }
 }

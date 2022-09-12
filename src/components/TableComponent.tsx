@@ -6,7 +6,6 @@ interface IProps extends Omit<TableProps<any>, 'title'> {
   title: string,
   loc: string,
 }
-
 const TableComponent = ({title, loc, ...rest}: IProps) => {
   return (
     <div className="table-div">

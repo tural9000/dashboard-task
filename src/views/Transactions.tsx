@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import type { TableProps } from "antd/es/table";
 import { columnsTransaction } from "../constants";
-import { useStores } from "../store/useStore";
+import { useStores } from "../store/useStore"; 
 import { observer } from "mobx-react";
 import ITransaction from "../types/Transaction";
 

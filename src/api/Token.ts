@@ -8,7 +8,7 @@ export const getTokens = ({page, limit = 10}: IFilter): Promise<{count: number, 
       _page: page,
       _limit: limit
     }
-  }).then((res: AxiosResponse) => ({data: res.data,count: parseInt(res.headers['x-total-count']) }));
+  }).then((res: AxiosResponse) => ({data: res.data, count: parseInt(res.headers['x-total-count']) }));
 };
 
 

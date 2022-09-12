@@ -11,20 +11,22 @@ import {
   columnsTransaction,
   columnsToken,
 } from "../constants";
-import { useStores } from "../store/useStore";
+import { useStores } from "../store/useStore"; 
 
 const Home = () => {
+  
   const { usersStore } = useStores();
   const { transactionsStore } = useStores();
   const { tokensStore } = useStores();
-
+  
+  
   return (
     <>
       <TableComponent
         loc={usersLoc}
         title={userTitleTable}
         columns={columnsUser}
-        dataSource={usersStore.users.slice(0, 4)}
+        dataSource={usersStore.users.slice(0, 8)}
         pagination={false}
       />
 
@@ -32,7 +34,7 @@ const Home = () => {
         loc={transactionsLoc}
         title={transactionTitleTable}
         columns={columnsTransaction}
-        dataSource={transactionsStore.transactions.slice(0, 4)}
+        dataSource={transactionsStore.transactions.slice(0, 8)}
         pagination={false}
       />
 
@@ -40,7 +42,7 @@ const Home = () => {
         loc={tokensLoc}
         title={tokenTitleTable}
         columns={columnsToken}
-        dataSource={tokensStore.tokens.slice(0, 4)}
+        dataSource={tokensStore.tokens.slice(0, 8)}
         pagination={false}
       />
     </>

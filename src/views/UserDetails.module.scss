@@ -1,0 +1,280 @@
+@use "../scss/abstracts" as *;
+$img: url("../assets/images/mountain2.png");
+
+.userPage {
+  width: 100%;
+  z-index: 0;
+  background: #e4e5e6;
+
+  &__header {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: transparent;
+    background-image: linear-gradient(160deg, #58abb9fa 0%, #59caf7 100%);
+    padding: 150px 35px 80px 35px;
+    border-radius: 2px 2px 2px 2px;
+
+    &__background {
+      background-image: $img;
+      background-position: center center;
+      opacity: 0.16;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+    }
+    &__widget {
+      position: absolute;
+      top: 0;
+      width: 40%;
+      height: 18vh;
+      background-color: #66b9f0fa;
+      padding: 20px 40px;
+      text-align: center;
+      opacity: 0.7;
+      box-shadow: 0 0 2px #66b9f0fa;
+    }
+  }
+}
+.widget__columns {
+  margin-top: -130px;
+  z-index: 1;
+}
+.widget__heading h2 {
+  color: #fafafafa;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.widget__text {
+  color: #fafafafa;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+}
+
+/// userPage main style
+.userPage__main {
+  max-width: 1200px;
+  margin: -90px auto;
+  position: relative;
+  background: #fdf9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #d1d1d1;
+
+  &__container {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    .main__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      position: relative;
+
+      &__edit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border: solid green;
+      }
+      &__img img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+        position: absolute;
+        top: -80px;
+        color: #23969efa;
+        vertical-align: center;
+      }
+
+      &__text {
+        display: block;
+
+        h3 {
+          color: #37dce2;
+          font-weight: 700;
+          font-size: 1.2rem;
+        }
+
+        p {
+          color: #1c66695d;
+          font-weight: bold;
+          font-size: 1rem;
+          line-height: 0;
+        }
+      }
+      &__btn{
+        display: flex;
+      }
+      &__btn button {
+        margin-right: 0.15rem;
+        color: #353535c4;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+    }
+    .note {
+      text-align: center;
+      width: 65%;
+      height: 10vh;
+      margin: auto;
+      padding-left: 4rem;
+      font-size: 1rem;
+      color: #1d1d1da4;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
+    hr {
+      opacity: 0.3;
+    }
+
+    // userPage main > userInfo style
+    .userInfo {
+      display: flex;
+      justify-content: space-around;
+
+      &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        &__widget {
+          color: #1d1d1dbe;
+          font-size: 1rem;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          margin-top: 1.6rem;
+
+          h6 {
+            font-size: 0.8rem;
+            color: #24242496;
+          }
+          p,
+          h4 {
+            font-weight: bold;
+            line-height: 1;
+            color: #202020b4;
+          }
+
+          .emailTxt {
+            color: #37dce2;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .badges {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 2rem;
+
+      &__img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //  color: #3731881f;
+      }
+      &__img01 {
+        margin-bottom: 2.2rem;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+        border: solid #d7e0ecee;
+        background: #319ee6f1;
+        padding: 10px;
+      }
+      &__txt {
+        color: #333333d3;
+        font-size: 1rem;
+        font-family: Georgia, Times, "Times New Roman", serif;
+        margin-top: 0.6rem;
+      }
+      .badge {
+        color: #333333d3;
+        font-size: 2rem;
+        font-family: Georgia, Times, "Times New Roman", serif;
+      }
+      .view {
+        margin-top: 1rem;
+        a {
+          font-size: 1.04rem;
+          font-weight: 600;
+          color: #319ee6f1;
+        }
+      }
+    }
+  }
+}
+
+.userList {
+  color: #272727ce;
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
+}
+.userList:hover {
+  text-shadow: 0 0 0.7px #1f82d3;
+  transition: all 0.5s;
+  text-decoration: underline;
+  color: #1a73bb;
+}
+
+.button23 {
+  background-color: #ffffff;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.button23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button23:active {
+  background-color: #f7f7f7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.button23:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}

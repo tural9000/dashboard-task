@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import type { TableProps } from "antd/es/table";
 import { columnsToken } from "../constants";
-import { useStores } from "../store/useStore";
+import { useStores } from "../store/useStore"; 
 import { observer } from "mobx-react";
 import IToken from "../types/Token";
 
@@ -22,6 +22,7 @@ const ApiTokens = () => {
       });
     }
   };
+  
 
   return (
     <div className="page-div">

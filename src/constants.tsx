@@ -1,3 +1,7 @@
+import { ColumnsType } from "antd/lib/table";
+import IUser from "./types/User";
+import styl from "./views/UserDetails.module.scss";
+
 // Routes
 export const usersLoc = "/users";
 export const transactionsLoc = "/transactions";

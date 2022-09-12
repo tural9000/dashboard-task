@@ -4,9 +4,9 @@ import Home from "./views/Home";
 import Users from "./views/Users";
 import Transactions from "./views/Transactions";
 import ApiTokens from "./views/ApiTokens";
+import UserDetails from './views/UserDetails';
 
 function App() {
-  const a:number = 3;
   return (
     <Router>
       <Navbar />
@@ -15,9 +15,10 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/tokens" element={<ApiTokens />} />
+        <Route path="/details/:id" element={<UserDetails />} ></Route> 
       </Routes>
     </Router>
   );
 }
 
-export default App;
+export default App; 

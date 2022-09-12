@@ -11,6 +11,8 @@ export default class RootStore {
   usersStore: UsersStore;
   transactionsStore: TransactionsStore;
   tokensStore: TokensStore;
+  // this.userStore.load();
+  
 
   constructor() {
     makeAutoObservable(this);
